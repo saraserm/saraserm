@@ -1,0 +1,61 @@
+---
+title: "About Me" 
+---
+
+![](/Users/saraserm/Documents/Website_template/profile_pic.png){width=125}  
+---
+>Local Enthusiam Enthusiast  
+No longer a suffering fan of the Philadelphia Eagles  
+_Fly Eagles Fly_
+
+
+### A Few of My Favorite Things: 
+* _Sports Team_: Philadelphia Eagles
+* _Vacation Spot_: Disney World
+* _Movie_: Monty Python and the Holy Grail
+* _TV Show_: It's Always Sunny in Philadelphia
+* _Food_: French Fries  
+* _Color_: Blue
+* _Animal_: My Shih Tzu Teddie
+* _Holiday_: Thanksgiving  
+
+---  
+
+### My Top 10 Most Played Songs on Spotify in 2017:
+ 1. Go to Hell - _Go Radio_
+ 2. $ave Dat Money - _Lil Dicky_
+ 3. It Wasn't Me - _Shaggy_
+ 4. Bruh... - _Lil Dicky_
+ 5. Gotten - _Adam Levine, Slash_
+ 6. Today I Saw The Whole World - _Pierce the Veil_
+ 7. How Far I'll Go - _Aili'i Cravalho_
+ 8. Lemme Freak - _Lil Dicky_
+ 9. Clint Eastwood - _Gorillaz_
+ 10. Alexander Hamilton - _Hamilton Cast_  
+ 
+ ___
+
+### Philadelphia Eagles Season Record:
+
+Date        | Opponent        | Score   | W/L 
+------------|-----------------|---------|-----
+Sept 10     | Washington      | 30 - 17 | W
+Sept 17     | Kansas City     | 20 - 27 | L
+Sept 24     | New York (G)    | 27 - 24 | W
+Oct 01      | Los Angeles (C) | 26 - 24 | W
+Oct 08      | Arizona         | 34 - 7  | W
+Oct 12      | Carolina        | 28 - 23 | W
+Oct 23      | Washington      | 34 - 24 | W
+Oct 29      | San Fransisco   | 33 - 10 | W
+Nov 5       | Denver          | 51 - 23 | W
+Nov 19      | Dallas          | 37 - 9  | W
+Nov 26      | Chicago         | 31 - 3  | W
+Dec 3       | Seattle         | 10 - 24 | L
+Dec 10      | Los Angeles (R) | 43 - 35 | W
+Dec 17      | New York (G)    | 34 - 29 | W
+Dec 25      | Oakland         | 19 - 10 | W
+Dec 31      | Dallas          | 0 - 6   | L
+Jan 13 (P)  | Atlanta         | 15 - 10 | W
+Jan 31 (P)  | Minnesota       | 38 - 7  | W
+Feb 4 (SB)  | New England     | 41 - 33 | W
+ 

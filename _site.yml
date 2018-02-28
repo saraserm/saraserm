@@ -1,0 +1,18 @@
+name: Sara Serm
+output_dir: '.'
+navbar:
+  title: Sara Serm
+  left:
+  - text: About Me
+    href: index.html
+  - text: Other Stuff
+    href: about.html
+output:
+  html_document:
+    theme: journal
+    highlight: espresso
+    include:
+    css: styles.css
+    lib_dir: site_libs
+    self_contained: no
+
