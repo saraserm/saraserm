@@ -1,0 +1,149 @@
+---
+title: "Data & Methods"
+
+---
+
+The data source is game-by-game referee and penalty information from [www.pro-football-reference.com/officials/](www.pro-football-reference.com/officials/) that was collected from each NFL game from 1999-present.
+Pro-football reference gets their data from Gracenote (a Nielsen Company) and the creators of ESPN Pro Football Encyclopedia. 
+For simplicity purposes, I will be limiting the data set to current head referees who have at least 50 head reffing games between 1999 and the present. Limiting the data to head referees eliminates the redundancy of having duplicate data from the whole referee crew and requiring at least 50 games of head reffing ensures there are enough data points for each referee. All of the referees had to have been a head referee in the last season (2017-2018). 
+
+---
+
+##Variables (11 variables, 2906 Observations):# 
+* __Home Team (Home)__ - team who is playing in their home stadium
+* __Opponent (Opp)__- visiting team who is not playing on their home field
+* __Home Team Win (HomeWin)__ - codes as 0 for no and 1 for yes, this specifies whether the home team won
+* __Opponent Penalties (OppPen)__ - the number of penalties committed by the opponent that were accepted by the home team (a penalty could be committed but not accepted, which means it is as if the penalty never happened. This could occur if there is more than one penalty and the home team will accept the one that benefits them more or if the result of the play is more beneficial than the results of the penalty. It is worth noting this is somewhat rare and most penalties are accepted.)
+* __Opponent Penalty Yards (OppPenYds)__ - the yards resulting from penalty calls for the away team
+* __Home Penalties (HomePen)__ - the number of penalties committed by the home team that were accepted by the opponent (see note about what accepted penalty means)
+* __Home Penalty Yards (HomePenYds)__ - yards resulting form penalty calls for the home team
+* __Referee (Ref)__ - the head referee for the game (only the head referee is noted for all the games because including each official would be redundant)
+* __Penalty Differences (PennDiff)__ - Opponent penalties minus home penalties 
+
+------
+
+## Data Codes:
+
+### Referee Code
+Name          | Code   
+--------------|-------|
+Brad Allen    | 1     |
+Walt Anderson | 2     |
+Clete Blakeman| 3     |
+Jerome Boger  | 4     |
+Carl Cheffers | 5     |
+Walt Coleman  | 6     |
+Tony Corrente | 7     |
+Ed Hochuli    | 8     |
+Terry McAulay | 9     |
+Pete Morelli  | 10    |
+John Parry    | 11    |
+Gene Steratore| 12    |
+Ron Torbert   | 13    |
+Jeff Triplette| 14    |
+Bill Vinovich | 15    |
+Craig Wrolstad| 16    |
+
+------
+
+
+###Team Code
+Name                    | Code   
+------------------------|-------|
+Arizona Cardinals       | 1     |
+Atlanta Falcons         | 2     |
+Baltimore Ravens        | 3     |
+Buffalo Bills           | 4     |
+Carolina Panthers       | 5     |
+Chicago Bears           | 6     |
+Cincinnati Bengals      | 7     |
+Cleveland Browns        | 8     |
+Dallas Cowboys          | 9     |
+Denver Broncos          | 10    |
+Detroit Lions           | 11    |
+Green Bay Packers       | 12    |
+Houston Texans          | 13    |
+Indianapolis Colts      | 14    |
+Jacksonville Jaguars    | 15    |
+Kansas City Chiefs      | 16    |
+Los Angeles Rams        | 17    |
+Los Angeles Chargers    | 18    |
+Miami Dolphins          | 19    |
+Minnesota Vikings       | 20    |
+New England Patriots    | 21    |
+New Orleans Saints      | 22    |
+New York Giants         | 23    |
+New York Jets           | 24    |
+Oakland Raiders         | 25    |
+Philadelphia Eagles     | 26    |
+Pittsburgh Steelers     | 27    |
+San Francisco 49ers     | 28    |
+Seattle Seahawks        | 29    |
+Tampa Bay Buccaneers    | 30    |
+Tennessee Titans        | 31    |
+Washington Redskins     | 32    |
+
+-----
+
+
+
+
+```{r eval=FALSE}
+
+headref <- read.csv("reffing data.csv")
+  attach(headref)
+
+```
+
+```{r}
+ ##basic statistic and descriptions of data 
+mean(Home)
+  sd(Home)
+  hist(Home)
+```
+
+```{r}
+mean(Opp)
+  sd(Opp)
+  hist(Opp)
+```  
+
+```{r}
+mean(OppPen)
+  sd(OppPen)
+  hist(OppPen)
+```
+
+```{r}
+mean(OppPenYds)
+  sd(OppPenYds)
+  hist(OppPenYds)
+```
+
+```{r}
+mean(HomePen)
+  sd(HomePen)
+  hist(HomePen)
+```
+
+```{r}
+mean(HomePenYds)
+  sd(HomePenYds)
+  hist(HomePenYds)
+```
+
+```{r}
+mean(PenDiff)
+  sd(PenDiff)
+  hist(PenDiff)
+```
+
+```{r}
+summary(factor(Ref))
+refcount <- summary(factor(Ref))
+hist(Ref)
+```
+
+
+----
+  

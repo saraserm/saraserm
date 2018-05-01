@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Analyses</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BDS 522 Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="Introduction.html">Introduction</a>
+</li>
+<li>
+  <a href="Data.html">Data &amp; Methods</a>
+</li>
+<li>
+  <a href="Analyses.html">Analyses</a>
+</li>
+<li>
+  <a href="Conclusion.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Analyses</h1>
+
+</div>
+
+
+<pre class="r"><code>headref &lt;- read.csv(&quot;reffing data.csv&quot;)
+  attach(headref)</code></pre>
+<pre class="r"><code>t.test(OppPen,HomePen) #tests if there is a significant difference between home and away penalties</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  OppPen and HomePen
+## t = 6.0809, df = 5787, p-value = 1.271e-09
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.3005684 0.5865617
+## sample estimates:
+## mean of x mean of y 
+##  6.607708  6.164143</code></pre>
+<hr />
+<p>To evaluate whether there is significant difference in the number of penalties called for opposing versus home teams, an independent t-test was conducted on the number of penalties called on home and opposing teams. The results showed that the opposing team (M = 6.608, SD = 2.867) received significantly more penalties than the home team (M = 6.164, SD = 2.691), t(5787) = 6.0809, p &lt; .001. This result supports the idea that there is home team bias in the NFL. Home teams receive significantly less penalties than their opponents.</p>
+<hr />
+<pre class="r"><code>cor.test(HomePen,HomePenYds)#tests if there is correlation between yards and penalties, which ensures that type of penalty is not a factor</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  HomePen and HomePenYds
+## t = 95.504, df = 2904, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.8618523 0.8794320
+## sample estimates:
+##       cor 
+## 0.8709205</code></pre>
+<pre class="r"><code>cor.test(OppPen, OppPenYds)</code></pre>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  OppPen and OppPenYds
+## t = 91.185, df = 2904, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.8511826 0.8700252
+## sample estimates:
+##       cor 
+## 0.8608988</code></pre>
+<pre class="r"><code>t.test(OppPenYds,HomePenYds)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  OppPenYds and HomePenYds
+## t = 5.3431, df = 5783.1, p-value = 9.488e-08
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.396022 5.173146
+## sample estimates:
+## mean of x mean of y 
+##  55.28837  51.50379</code></pre>
+<hr />
+<p>Since penalties can differ in the amount of yards they carry with them, it is possible that differences in the type of penalty could eliminate the bias. For example, even if the home team receives less calls, the penalties that are called on them could carry more yards, which would negate the bias. However, the number of penalties on the Home team and the number of penalty yards on the home team were significantly correlated positively correlated, r(2904) = .8709, p &lt; .01. The number of penalties on the opposing team and the number of opposing team penalty yards were also significantly correlated, r(2904) = .8609, p &lt; .01. This helps rule out the possibility that type of penalty called differs between home and away team.</p>
+<p>An independent t-test was then conducted on penalty yards for the opposing team versus the home team. Like the previous t-test on the number of penalties for opposing verus home teams, the results showed that the opposing team (M = 55.288, SD = 27.904) had significantly more penalty yards than the home team (M = 51.504, SD = 26.064), t(5783) = 5.3431, p &lt; .001. This result helps supports the previous t-test result by confirming that yards associated with the penalties also differs significantly for opposing versus home teams.</p>
+<hr />
+<pre class="r"><code>model1 &lt;- glm(Home.Win ~ PenDiff)#tests if the difference in the number of penalties between home and away team 
+summary(model1)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = Home.Win ~ PenDiff)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -0.32684  -0.17981  -0.14714  -0.08179   0.99989  
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  0.163475   0.006698  24.408   &lt;2e-16 ***
+## PenDiff     -0.016336   0.001839  -8.884   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for gaussian family taken to be 0.128422)
+## 
+##     Null deviance: 383.07  on 2905  degrees of freedom
+## Residual deviance: 372.94  on 2904  degrees of freedom
+## AIC: 2286.5
+## 
+## Number of Fisher Scoring iterations: 2</code></pre>
+<pre class="r"><code>exp(coef(model1)) #to get the odds ratio</code></pre>
+<pre><code>## (Intercept)     PenDiff 
+##   1.1775956   0.9837963</code></pre>
+<pre class="r"><code>wald.test(b = coef(model1), Sigma = vcov(model1), Terms = 2) #package &quot;aod&quot; must be installed for wald.test to work</code></pre>
+<pre><code>## Wald test:
+## ----------
+## 
+## Chi-squared test:
+## X2 = 78.9, df = 1, P(&gt; X2) = 0.0</code></pre>
+<pre class="r"><code>confint(model1)</code></pre>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##                   2.5 %      97.5 %
+## (Intercept)  0.15034776  0.17660173
+## PenDiff     -0.01994066 -0.01273212</code></pre>
+<hr />
+<p>Since there is a significant difference between the number of penalties called on opposing teams versus home teams, it is possible that this difference could have an impact on the outcome of the game. To evaluate if the difference in penalties between opposing and home teams impacts the game outcome, a logistic regression was conducted with penalty differences between the opponent and home team (PenDiff) as a predictor for whether the home team wins. The results showed that the penalty difference significantly predicts the home team likelihood of winning, β = -.016336, 95% CI: -.01994, -.01273, 𝛘2(1) = 78.9, p &lt; .001. This means that for each additional unit in penalty differences, the odds of being of the home team winning increases by a factor of .9838.</p>
+<hr />
+<hr />
+<hr />
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

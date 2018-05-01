@@ -1,0 +1,54 @@
+---
+title: "Analyses" 
+---
+```{r eval=FALSE}
+headref <- read.csv("reffing data.csv")
+  attach(headref)
+```
+
+```{r}
+t.test(OppPen,HomePen) #tests if there is a significant difference between home and away penalties
+```
+
+----
+
+To evaluate whether there is significant difference in the number of penalties called for opposing versus home teams, an independent t-test was conducted on the number of penalties called on home and opposing teams. The results showed that the opposing team (M = 6.608, SD = 2.867) received significantly more penalties than the home team (M = 6.164, SD = 2.691), t(5787) = 6.0809, p < .001. This result supports the idea that there is home team bias in the NFL. Home teams receive significantly less penalties than their opponents.
+
+----
+
+```{r}
+cor.test(HomePen,HomePenYds)#tests if there is correlation between yards and penalties, which ensures that type of penalty is not a factor
+cor.test(OppPen, OppPenYds)
+t.test(OppPenYds,HomePenYds)
+```
+
+----
+
+Since penalties can differ in the amount of yards they carry with them, it is possible that differences in the type of penalty could eliminate the bias. For example, even if the home team receives less calls, the penalties that are called on them could carry more yards, which would negate the bias. However, the number of penalties on the Home team and the number of penalty yards on the home team were significantly correlated positively correlated, r(2904) = .8709, p < .01. The number of penalties on the opposing team and the number of opposing team penalty yards were also significantly correlated, r(2904) = .8609, p < .01. This helps rule out the possibility that type of penalty called differs between home and away team. 
+
+
+An independent t-test was then conducted on penalty yards for the opposing team versus the home team. Like the previous t-test on the number of penalties for opposing verus home teams, the results showed that the opposing team (M = 55.288, SD = 27.904) had significantly more penalty yards than the home team (M = 51.504, SD = 26.064), t(5783) = 5.3431, p < .001. This result helps supports the previous t-test result by confirming that yards associated with the penalties also differs significantly for opposing versus home teams. 
+
+----
+
+```{r}
+model1 <- glm(Home.Win ~ PenDiff)#tests if the difference in the number of penalties between home and away team 
+summary(model1)
+exp(coef(model1)) #to get the odds ratio
+wald.test(b = coef(model1), Sigma = vcov(model1), Terms = 2) #package "aod" must be installed for wald.test to work
+confint(model1)
+```
+
+-----
+
+Since there is a significant difference between the number of penalties called on opposing teams versus home teams, it is possible that this difference could have an impact on the outcome of the game. To evaluate if the difference in penalties between opposing and home teams impacts the game outcome, a logistic regression was conducted with penalty differences between the opponent and home team (PenDiff) as a predictor for whether the home team wins. The results showed that the penalty difference significantly predicts the home team likelihood of winning, β = -.016336, 95% CI: -.01994, -.01273, 𝛘2(1) = 78.9, p < .001. This means that for each additional unit in penalty differences, the odds of being of the home team winning increases by a factor of .9838. 
+	
+----
+	
+---
+
+
+
+ 
+ ___
+

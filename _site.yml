@@ -1,18 +1,15 @@
-name: Sara Serm
+name: "BDS 522 Project"
 output_dir: '.'
 navbar:
-  title: Sara Serm
+  title: "BDS 522 Project"
   left:
-  - text: About Me
-    href: index.html
-  - text: Other Stuff
-    href: about.html
-output:
-  html_document:
-    theme: journal
-    highlight: espresso
-    include:
-    css: styles.css
-    lib_dir: site_libs
-    self_contained: no
+  - text: "Introduction"
+    href: Introduction.html
+  - text: "Data & Methods"
+    href: Data.html
+  - text: "Analyses"
+    href: Analyses.html
+  - text: "Conclusion"
+    href: Conclusion.html
+
 

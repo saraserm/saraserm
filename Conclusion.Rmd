@@ -1,0 +1,21 @@
+---
+title: "Conclusion" 
+---
+The results suggest that home field advantage in form of less penalties against the home team exists in NFL. Referees call significantly less penalties on the home team than on the opposing team. Interestingly, the disparity between opposition and home team penalties significantly predicts whether the home team will win. Each additional unit of increase in this difference (when opponent has more penalties than the home team) increases the odds of the home team winning by a factor of .98. This shows that the home team bias has an impact on the game. 
+
+It is important to note that while penalty discrepancies between the opposing and home team significantly impacts the likelihood of the home team winning, there are many other factors that come into play. For example, it is unknown how this effect differs by team (one team receiving a larger home field advantage than others) or by referee (one referee may be more biased than others). Home field advantage is also not the only determinant in the outcome of the game. Team skill is likely (and understandably) the largest decider in the outcome of the game. More intricate analyses would be required to understand under what circumstances home field advantage holds and what effect size it has on game outcome. 
+
+However, the presented analyses suggest that home field advantage is a real effect that has a real impact on the likelihood of the home team winning.
+
+-----
+
+
+
+
+                                  Superbowl LII Champs! Go Birds!
+ 
+---
+
+
+ ___
+

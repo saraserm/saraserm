@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data &amp; Methods</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BDS 522 Project</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="Introduction.html">Introduction</a>
+</li>
+<li>
+  <a href="Data.html">Data &amp; Methods</a>
+</li>
+<li>
+  <a href="Analyses.html">Analyses</a>
+</li>
+<li>
+  <a href="Conclusion.html">Conclusion</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data &amp; Methods</h1>
+
+</div>
+
+
+<p>The data source is game-by-game referee and penalty information from <a href="www.pro-football-reference.com/officials/" class="uri">www.pro-football-reference.com/officials/</a> that was collected from each NFL game from 1999-present. Pro-football reference gets their data from Gracenote (a Nielsen Company) and the creators of ESPN Pro Football Encyclopedia. For simplicity purposes, I will be limiting the data set to current head referees who have at least 50 head reffing games between 1999 and the present. Limiting the data to head referees eliminates the redundancy of having duplicate data from the whole referee crew and requiring at least 50 games of head reffing ensures there are enough data points for each referee. All of the referees had to have been a head referee in the last season (2017-2018).</p>
+<hr />
+<div id="variables-11-variables-2906-observations" class="section level2">
+<h2>Variables (11 variables, 2906 Observations):</h2>
+<ul>
+<li><strong>Home Team (Home)</strong> - team who is playing in their home stadium</li>
+<li><strong>Opponent (Opp)</strong>- visiting team who is not playing on their home field</li>
+<li><strong>Home Team Win (HomeWin)</strong> - codes as 0 for no and 1 for yes, this specifies whether the home team won</li>
+<li><strong>Opponent Penalties (OppPen)</strong> - the number of penalties committed by the opponent that were accepted by the home team (a penalty could be committed but not accepted, which means it is as if the penalty never happened. This could occur if there is more than one penalty and the home team will accept the one that benefits them more or if the result of the play is more beneficial than the results of the penalty. It is worth noting this is somewhat rare and most penalties are accepted.)</li>
+<li><strong>Opponent Penalty Yards (OppPenYds)</strong> - the yards resulting from penalty calls for the away team</li>
+<li><strong>Home Penalties (HomePen)</strong> - the number of penalties committed by the home team that were accepted by the opponent (see note about what accepted penalty means)</li>
+<li><strong>Home Penalty Yards (HomePenYds)</strong> - yards resulting form penalty calls for the home team</li>
+<li><strong>Referee (Ref)</strong> - the head referee for the game (only the head referee is noted for all the games because including each official would be redundant)</li>
+<li><strong>Penalty Differences (PennDiff)</strong> - Opponent penalties minus home penalties</li>
+</ul>
+<hr />
+</div>
+<div id="data-codes" class="section level2">
+<h2>Data Codes:</h2>
+<div id="referee-code" class="section level3">
+<h3>Referee Code</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Brad Allen</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Walt Anderson</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Clete Blakeman</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Jerome Boger</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Carl Cheffers</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Walt Coleman</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>Tony Corrente</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Ed Hochuli</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>Terry McAulay</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>Pete Morelli</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>John Parry</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Gene Steratore</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Ron Torbert</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>Jeff Triplette</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>Bill Vinovich</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>Craig Wrolstad</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div id="team-code" class="section level3">
+<h3>Team Code</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Arizona Cardinals</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Atlanta Falcons</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Baltimore Ravens</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>Buffalo Bills</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>Carolina Panthers</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Chicago Bears</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>Cincinnati Bengals</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>Cleveland Browns</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>Dallas Cowboys</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>Denver Broncos</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>Detroit Lions</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Green Bay Packers</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>Houston Texans</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>Indianapolis Colts</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>Jacksonville Jaguars</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>Kansas City Chiefs</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>Los Angeles Rams</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>Los Angeles Chargers</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td>Miami Dolphins</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td>Minnesota Vikings</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>New England Patriots</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>New Orleans Saints</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>New York Giants</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>New York Jets</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>Oakland Raiders</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>Philadelphia Eagles</td>
+<td>26</td>
+</tr>
+<tr class="odd">
+<td>Pittsburgh Steelers</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td>San Francisco 49ers</td>
+<td>28</td>
+</tr>
+<tr class="odd">
+<td>Seattle Seahawks</td>
+<td>29</td>
+</tr>
+<tr class="even">
+<td>Tampa Bay Buccaneers</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>Tennessee Titans</td>
+<td>31</td>
+</tr>
+<tr class="even">
+<td>Washington Redskins</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<pre class="r"><code>headref &lt;- read.csv(&quot;reffing data.csv&quot;)
+  attach(headref)</code></pre>
+<pre class="r"><code> ##basic statistic and descriptions of data 
+mean(Home)</code></pre>
+<pre><code>## [1] 16.7629</code></pre>
+<pre class="r"><code>  sd(Home)</code></pre>
+<pre><code>## [1] 9.226499</code></pre>
+<pre class="r"><code>  hist(Home)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>mean(Opp)</code></pre>
+<pre><code>## [1] 16.44942</code></pre>
+<pre class="r"><code>  sd(Opp)</code></pre>
+<pre><code>## [1] 9.209496</code></pre>
+<pre class="r"><code>  hist(Opp)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>mean(OppPen)</code></pre>
+<pre><code>## [1] 6.607708</code></pre>
+<pre class="r"><code>  sd(OppPen)</code></pre>
+<pre><code>## [1] 2.866795</code></pre>
+<pre class="r"><code>  hist(OppPen)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>mean(OppPenYds)</code></pre>
+<pre><code>## [1] 55.28837</code></pre>
+<pre class="r"><code>  sd(OppPenYds)</code></pre>
+<pre><code>## [1] 27.90445</code></pre>
+<pre class="r"><code>  hist(OppPenYds)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>mean(HomePen)</code></pre>
+<pre><code>## [1] 6.164143</code></pre>
+<pre class="r"><code>  sd(HomePen)</code></pre>
+<pre><code>## [1] 2.691397</code></pre>
+<pre class="r"><code>  hist(HomePen)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>mean(HomePenYds)</code></pre>
+<pre><code>## [1] 51.50379</code></pre>
+<pre class="r"><code>  sd(HomePenYds)</code></pre>
+<pre><code>## [1] 26.06358</code></pre>
+<pre class="r"><code>  hist(HomePenYds)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>mean(PenDiff)</code></pre>
+<pre><code>## [1] 0.443565</code></pre>
+<pre class="r"><code>  sd(PenDiff)</code></pre>
+<pre><code>## [1] 3.615574</code></pre>
+<pre class="r"><code>  hist(PenDiff)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>summary(factor(Ref))</code></pre>
+<pre><code>##   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16 
+##  52 226 115 171 146 282 284 293 258 224 158 176  54 283 131  53</code></pre>
+<pre class="r"><code>refcount &lt;- summary(factor(Ref))
+hist(Ref)</code></pre>
+<p><img src="Data_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<hr />
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
